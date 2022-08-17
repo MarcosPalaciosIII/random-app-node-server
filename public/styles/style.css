@@ -1,0 +1,73 @@
+@keyframes pulse {
+    0% {
+      background-color: #001F3F;
+    }
+    100% {
+      background-color: #FF4136;
+    }
+  }
+
+
+/* all .html's */
+body {
+    margin: 0;
+    padding: 3vw 2vw 0;
+    background-color: bisque;
+}
+
+nav {
+    background-color: cadetblue;
+    height: 3vw;
+    display: flex;
+    align-items: center;
+    padding: 0 3vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 95vw;
+}
+
+nav a {
+    margin-right: 1vw;
+    text-decoration: none;
+    color: navajowhite;
+}
+
+h1 {
+    text-align: center;
+    font-size: 50px;
+
+    /* animation: pulse 5s infinite; */
+}
+
+.hide {
+  /* display: none; */
+  visibility: hidden;
+  position: absolute;
+}
+
+.show {
+  /* display: block; */
+  visibility: visible;
+  position: unset;
+}
+
+.warning {
+  padding: 2px 5px;
+  color: red;
+  background-color: black;
+}
+
+.center--content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.center--column {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+

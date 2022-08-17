@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Some App</title>
+        <link rel="stylesheet" href="./public/styles/game.style.css" />
+        <link rel="stylesheet" href="../public/styles/style.css" />
+    </head>
+    <body>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/instructions">Instructions</a>
+            <a href="/about">About</a>
+        </nav>
+        <h1>Some App Game</h1>
+
+        <div class="center--content" id="game--container">
+            <div class="game--container-left_content"></div>
+            <div class="game--container-center_content center-column">
+                <div class="game" id="game--details"></div>
+                <div class="game" id="game--board">
+                    <div id="game--board-html"></div>
+                </div>
+                <div class="game" id="game--actions"></div>
+            </div>
+            <div class="game--container-right_content"></div>
+        </div>
+
+        <footer></footer>
+        <script src="../public/scripts/card.js"></script>
+        <script src="../public/scripts/deck.js"></script>
+        <script src="../public/scripts/general-player.js"></script>
+        <script src="../public/scripts/game.js"></script>
+        <script src="../public/scripts/scripts.js"></script>
+    </body>
+</html>

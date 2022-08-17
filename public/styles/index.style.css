@@ -1,0 +1,77 @@
+/* index.html */
+div {
+    height: 150px;
+    width: 96vw;
+}
+
+div.section--top, div.section--center, div.section--bottom {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+div.section--top input {
+    margin-right: 5px;
+}
+
+div.section--top button {
+    padding: 5px 10px;
+    font-size: 25px;
+    border-radius: 15px;
+    background-color: seagreen;
+    color: white;
+    border: 2px solid white;
+}
+
+div.section--top button:hover {
+    background-color: white;
+    color: seagreen;
+    border: 2px solid seagreen;
+}
+
+div.section--center button {
+    padding: 25px 35px;
+    font-size: 45px;
+    margin-right: 5vw;
+    border-radius: 25px;
+    background-color: darkcyan;
+    color: orange;
+    border: 2px solid orange;
+}
+
+div.section--center button:hover {
+    background-color: orange;
+    color: darkcyan;
+    border: 2px solid darkcyan;
+}
+
+div.section--bottom {
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+div.section--bottom input {
+    height: 30px;
+    width: 240px;
+}
+
+div.section--bottom button {
+    padding: 5px 10px;
+    font-size: 25px;
+    border-radius: 15px;
+    background-color: seagreen;
+    color: white;
+    border: 2px solid white;
+}
+
+div.section--bottom button:hover {
+    background-color: white;
+    color: seagreen;
+    border: 2px solid seagreen;
+}
+
+div.section--bottom .warning {
+    padding: 5px 15px;
+    border-radius: 8px;
+    font-size: 20px;
+}

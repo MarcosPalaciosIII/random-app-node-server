@@ -1,0 +1,49 @@
+/* game.html */
+
+div.game {
+    height: 150px;
+    width: 100%;
+    background-color: cornflowerblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#game--container {
+    justify-content: space-between;
+}
+
+#game--details {
+    /* height:  */
+    /* width:  */
+}
+
+#game--board {
+    height: 450px;
+    /* width: 85%; */
+    background-color: darkcyan;
+    margin: 0 auto;
+}
+
+#game--board-html {
+    height: 90%;
+    width: 75%;
+    border: 1px solid red;
+    background-color: unset;
+}
+
+#game--actions {
+    /* height:  */
+    /* width:  */
+}
+
+.game--container-left_content, .game--container-right_content {
+    width: 15vw;
+    height: 750px;
+    border: 1px solid green;
+}
+
+.game--container-center_content {
+    width: 65vw;
+    height: 750px;
+}

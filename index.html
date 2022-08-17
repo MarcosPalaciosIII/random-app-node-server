@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Some App</title>
+        <link rel="stylesheet" href="./public/styles/index.style.css" />
+        <link rel="stylesheet" href="./public/styles/style.css" />
+    </head>
+    <body>
+        <nav>
+            <a href="/instructions">Instructions</a>
+            <a href="/about">About</a>
+        </nav>
+        <h1>Some App</h1>
+
+        <div class="show section--top">
+            <button id="start-set-up-button">Let's Begin!</button>
+        </div>
+        <div class="hide section--center">
+            <button id="select--players-1">1 Player</button>
+            <button disabled id="select--players-2">2 Player</button>
+        </div>
+        <div class="hide section--bottom">
+            <input
+                id="player-name-input"
+                type="text"
+                placeholder="Enter Player Name"
+            />
+            <p class="warning hide"></p>
+            <button id="start-game-button">Confirm Player 1's Name</button>
+        </div>
+
+        <footer></footer>
+        <script src="./public/scripts/scripts.js"></script>
+    </body>
+</html>
