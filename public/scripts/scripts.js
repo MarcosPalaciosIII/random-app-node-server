@@ -66,6 +66,13 @@ function setGlobalVarsByEndpoint() {
                 numberOfPlayers = 1;
             })
 
+            players2Button.addEventListener('click', () => {
+                console.log('clicked 2 player button!');
+                toggleClassList(centerSection, ['show', 'hide']);
+                toggleClassList(bottomSection, ['show', 'hide']);
+                numberOfPlayers = 2;
+            })
+
 
         
             startGameButton.addEventListener('click', () => {
@@ -74,13 +81,22 @@ function setGlobalVarsByEndpoint() {
                     playerNameInput.value = '';
                     warningMessage.classList.remove('show')
                     warningMessage.classList.add('hide')
+                    console.log({playersArray});
+
+                    if(numberOfPlayers === 2 && playersArray.length !== 2) {
+                        startGameButton.innerHTML = `Confirm Player 2's Name`
+                    }
                 } else {
                     toggleClassList(warningMessage, ['show', 'hide']);
                     warningMessage.innerHTML = 'You Must Enter A Name'
                     return;
                 }
 
+                // if((numberOfPlayers === 1 && playersArray.length === 1) || (numberOfPlayers === 2 && playersArray.length === 2)) {
                 if(numberOfPlayers === 1 && playersArray.length === 1) {
+                    playersArray.push('Player 2');
+                    localStorage.setItem("playersArray", JSON.stringify(playersArray));
+                    localStorage.setItem("numberOfPlayers", numberOfPlayers);
                     window.location.pathname = '/game'
                 }
             })
@@ -93,6 +109,8 @@ function setGlobalVarsByEndpoint() {
             // serve(path.join(process.cwd(), 'views/instructions.html'));
         break;
         case '/game':
+            playersArray = JSON.parse(localStorage.getItem("playersArray"));
+            numberOfPlayers = (localStorage.getItem("numberOfPlayers"));
             const gameDetails = document.getElementById('game--details');
             const gameBoard = document.getElementById('game--board');
             const gameBoardHtml = document.getElementById('game--board-html');
@@ -100,7 +118,7 @@ function setGlobalVarsByEndpoint() {
 
             console.log({gameDetails, gameBoard, gameBoardHtml, gameActions, numberOfPlayers, playersArray});
 
-            const myGame = new Game();
+            const myGame = new Game(1, playersArray);
             myGame.startGame();
             console.log({myGame})
         break;
