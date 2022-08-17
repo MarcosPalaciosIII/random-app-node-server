@@ -18,9 +18,13 @@ const getContentType = (filePath) => {
             break;
         case '.png':
             contentType = 'image/png';
-            break;      
+            break; 
+        case '.jpeg':     
         case '.jpg':
             contentType = 'image/jpg';
+            break;
+        case '.gif':
+            contentType = 'image/gif';
             break;
         case '.wav':
             contentType = 'audio/wav';

@@ -5,6 +5,7 @@ class Game {
         this.whichPlayersTurn;
         // this.decks = [];
         this.numberOfDecks = numberOfDecks;
+        this.media = new Promotionals();
     }
 
     startGame() {
@@ -16,8 +17,9 @@ class Game {
         this.players.forEach(player => {
             for(let i = 0; i < this.numberOfDecks; i++) {
                 let randomIndex = randomNumber(6);
-                // this.decks.push(new Deck(player.name, cardSuitesOptions[0], cardValuesOptions[0], `public/data/images/card_back_${randomIndex}.${randomIndex > 0 ? 'jpeg' : 'png'}`))
-                player.addPlayerDeck(new Deck(player.name, cardSuitesOptions[0], cardValuesOptions[0], `public/data/images/card_back_${randomIndex}.${randomIndex > 0 ? 'jpeg' : 'png'}`))
+                // this.decks.push(new Deck(player.name, cardSuitesOptions[0], cardValuesOptions[0], `public/assets/images/card_back_${randomIndex}.${randomIndex > 0 ? 'jpeg' : 'png'}`))
+                
+                player.addPlayerDeck(new Deck(player.name, cardSuitesOptions[0], cardValuesOptions[0], `public/assets/images/card_back_${randomIndex}.${randomIndex > 0 ? 'jpeg' : 'png'}`))
             }
         })
 

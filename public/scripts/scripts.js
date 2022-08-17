@@ -1,39 +1,15 @@
 let playersArray = [];
 let numberOfPlayers = 0;
+let newGame;
 
 
 window.addEventListener('load', () => {
     console.log('Scripts Connected');
-    // const playerNameInput = document.querySelector("#player-name-input");
-    // const startGameButton = document.querySelector('#start-game-button');
-
-    // console.log({playerNameInput, startGameButton, theTitle});
-
-    // startGameButton.addEventListener('click', () => {
-    //     playersArray.push(titleInput.value);
-    //     playerNameInput.value = '';
-    // })
-
-    // ============================================
-
-    // const gameDetails = document.getElementById('game--details');
-    // const gameBoard = document.getElementById('game--board');
-    // const gameBoardHtml = document.getElementById('game--board-html');
-    // const gameActions = document.getElementById('game--actions');
-
-    // console.log({gameDetails, gameBoard, gameBoardHtml, gameActions});
-
-    // // console.log({location: window.location.pathname});
-    // // if(window.location.pathname)
-    // const myGame = new Game();
-    // myGame.startGame();
-    // console.log({myGame})
     setGlobalVarsByEndpoint();
 })
 
 
 function toggleClassList(element, classesArray) {
-    // console.log({element});
     classesArray.forEach((className) => element.classList.toggle(className));
   }
 
@@ -49,25 +25,20 @@ function setGlobalVarsByEndpoint() {
             const centerSection = document.querySelector('.section--center');
             const bottomSection = document.querySelector('.section--bottom');
             const warningMessage = document.querySelector('.warning');
-        
-            console.log({playerNameInput, startGameButton, players1Button, players2Button, topSection, centerSection, bottomSection, startSetUpButton, warningMessage});
 
             startSetUpButton.addEventListener('click', () => {
-                console.log('clicked start set up!');
                 toggleClassList(topSection, ['show', 'hide']);
                 toggleClassList(centerSection, ['show', 'hide']);
                 
             })
 
             players1Button.addEventListener('click', () => {
-                console.log('clicked 1 player button!');
                 toggleClassList(centerSection, ['show', 'hide']);
                 toggleClassList(bottomSection, ['show', 'hide']);
                 numberOfPlayers = 1;
             })
 
             players2Button.addEventListener('click', () => {
-                console.log('clicked 2 player button!');
                 toggleClassList(centerSection, ['show', 'hide']);
                 toggleClassList(bottomSection, ['show', 'hide']);
                 numberOfPlayers = 2;
@@ -81,7 +52,6 @@ function setGlobalVarsByEndpoint() {
                     playerNameInput.value = '';
                     warningMessage.classList.remove('show')
                     warningMessage.classList.add('hide')
-                    console.log({playersArray});
 
                     if(numberOfPlayers === 2 && playersArray.length !== 2) {
                         startGameButton.innerHTML = `Confirm Player 2's Name`
@@ -115,14 +85,40 @@ function setGlobalVarsByEndpoint() {
             const gameBoard = document.getElementById('game--board');
             const gameBoardHtml = document.getElementById('game--board-html');
             const gameActions = document.getElementById('game--actions');
+            const leftContent = document.querySelector('#game--container-left_content');
+            const rightContent = document.querySelector('#game--container-right_content');
 
-            console.log({gameDetails, gameBoard, gameBoardHtml, gameActions, numberOfPlayers, playersArray});
+            console.log({gameDetails, gameBoard, gameBoardHtml, gameActions, numberOfPlayers, playersArray, leftContent, rightContent});
 
-            const myGame = new Game(1, playersArray);
-            myGame.startGame();
-            console.log({myGame})
+            newGame = new Game(1, playersArray);
+            newGame.startGame();
+            console.log({newGame});
+
+            // const leftPromotions = document.createElement('img')
+            setPromotions(leftContent, 'gif', 4, leftContent.getAttribute('id'));
+            setPromotions(rightContent, 'gif', 4, rightContent.getAttribute('id'));
+            // leftPromotions.setAttribute('src', myGame.media.getContent('gif'))
         break;
         default:
             // serve(path.join(process.cwd(), req.url));
     }
 }
+
+// function setPromotions(element, contentType, promotionalNumberOfElements) {
+//     // const container = document.createElement('div');
+//     const images = {}
+//     container.setAttribute('class', 'promotion--box')
+//     for(let i = 0; i < promotionalNumberOfElements; i++) {
+//         let img = document.createElement('img');
+//         img.src = `${newGame.media.getContent(contentType)}`;
+//         img.setAttribute('class', 'promotion--img')
+
+//         console.log({img, src: img.src, randomMedia: newGame.media.getContent(contentType)})
+//         container.append(img)
+//     }
+
+//     console.log({innerHtml: element.innerHTML, media: newGame.media[contentType], container, contentType})
+
+//     element.innerHTML = '';
+//     element.append(container);
+// }
