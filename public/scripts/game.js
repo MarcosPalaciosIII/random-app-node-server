@@ -23,8 +23,6 @@ class Game {
             }
         })
 
-        this.whichPlayersTurn = this.players[Math.floor(Math.random() * this.players.length)];
+        this.whichPlayersTurn = this.players[randomNumber(this.players.length)]
     }
-
-    
 }
