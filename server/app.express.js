@@ -89,31 +89,32 @@
 // })
 
 
-const [app = express(), { static }] = [require('express')];
-// const express = require('express');
-// const app = express()
+// const [app = express(), { static }] = [require('express')];
+const express = require('express');
+const app = express()
+// const path = require('path');
 
-function renderHtml(filePath) {
-    res.sendFile(path.join(process.cwd(), filePath));
+function renderHtml(filePath, res, prefix) {
+    res.sendFile(`${process.cwd()}${!!prefix ? `/${prefix}/` : '/'}${filePath}`);
 }
 
-app.use(static('public'));
-app.use(static('views'));
+app.use(express.static('public'));
+// app.use(express.static('views'));
 
 app.get('/', (req, res, next) => {
-    renderHtml('index.html');
+    renderHtml('/index.html', res);
 })
 
 app.get('/about', (req, res, next) => {
-    renderHtml('about.html');
+    renderHtml('/about.html', res, 'views');
 })
 
 app.get('/instructions', (req, res, next) => {
-    renderHtml('instructions.html');
+    renderHtml('/instructions.html', res, 'views');
 })
 
 app.get('/game', (req, res, next) => {
-    renderHtml('game.html');
+    renderHtml('/game.html', res, 'views');
 })
 
 
