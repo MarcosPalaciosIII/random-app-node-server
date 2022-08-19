@@ -15,11 +15,17 @@ class Game {
 
         console.log({players: this.players, numberOfDecks: this.numberOfDecks})
         this.players.forEach(player => {
+            let randomIndex = randomNumber(6);
             for(let i = 0; i < this.numberOfDecks; i++) {
-                let randomIndex = randomNumber(6);
                 // this.decks.push(new Deck(player.name, cardSuitesOptions[0], cardValuesOptions[0], `public/assets/images/card_back_${randomIndex}.${randomIndex > 0 ? 'jpeg' : 'png'}`))
                 
-                player.addPlayerDeck(new Deck(player.name, cardSuitesOptions[0], cardValuesOptions[0], `/assets/images/card_back_${randomIndex}.${randomIndex > 0 ? 'jpeg' : 'png'}`))
+                // player.addPlayerDeck(new Deck(player.name, cardSuitesOptions[0], cardValuesOptions[0], `/assets/images/card_back_${randomIndex}.${randomIndex > 0 ? 'jpeg' : 'png'}`))
+                player.addPlayerDeck(new Deck(player.name, cardSuitesOptions[0], cardValuesOptions[0],randomIndex))
+                player.decks.forEach(deck => {
+                    deck.deck.forEach(card => {
+                        card.setCardImageSource();
+                    })
+                })
             }
         })
 
