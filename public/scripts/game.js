@@ -21,11 +21,6 @@ class Game {
                 
                 // player.addPlayerDeck(new Deck(player.name, cardSuitesOptions[0], cardValuesOptions[0], `/assets/images/card_back_${randomIndex}.${randomIndex > 0 ? 'jpeg' : 'png'}`))
                 player.addPlayerDeck(new Deck(player.name, cardSuitesOptions[0], cardValuesOptions[0],randomIndex))
-                player.decks.forEach(deck => {
-                    deck.deck.forEach(card => {
-                        card.setCardImageSource();
-                    })
-                })
             }
         })
 

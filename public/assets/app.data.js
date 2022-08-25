@@ -1,4 +1,5 @@
 const cardSuites1 = ['H', 'C', "D", "S"]
+const cardSuitsElementalValues = [];
 const cardValues1 = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A']
 const media = {
     png: [{prefix: 'card_back_', range: [0, 0], fileType: 'png'}],

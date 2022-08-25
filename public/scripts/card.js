@@ -6,6 +6,8 @@ class Card {
         this.imageFrontSrc = '';
         this.deckId = deckId;
         this.cardBackIndex = cardBackIndex;
+
+        this.setCardImageSouce();
     }
 
     setCardImageSouce() {
