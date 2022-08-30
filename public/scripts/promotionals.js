@@ -30,7 +30,7 @@ class Promotionals {
         let result = [];
         arrayOfObjects.forEach(object1 => {
             for (let i = object1.range[0]; i <= object1.range[1]; i++) {
-                result.push(`../public/assets/${object1.fileType === 'gif' ? 'gifs' : 'images'}/${object1.prefix}${i}.${object1.fileType}`)
+                result.push(`/assets/${object1.fileType === 'gif' ? 'gifs' : 'images'}/${object1.prefix}${i}.${object1.fileType}`)
             }
         })
         return result;

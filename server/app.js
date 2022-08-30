@@ -1,10 +1,10 @@
 const fs = require('fs');
 const  path = require('path');
 const { createServer } = require('http');
+let contentType = 'text/html';
 
 const getContentType = (filePath) => {
     const extname = path.extname(filePath);    
-    let contentType = 'text/html';
 
     switch (extname) {
         case '.js':
@@ -53,11 +53,11 @@ const requestListener = ((req, res) => {
             if(err) {
                 console.log("There was an error loading page: ", {err})
                 res.writeHead(404);
-                res.end(err);
-                // indexFile = JSON.stringify({error:"Resource not found", err});
-                // process.exit(1)
+                let indexFile = JSON.stringify({error:"Resource not found", err});
+                res.end(indexFile);
             }
 
+            // setTimeout(() => res.end(content), 500)
             res.end(content);
         })
     }
@@ -78,7 +78,13 @@ const requestListener = ((req, res) => {
             serve(path.join(process.cwd(), 'views/game.html'));
         break;
         default:
+            if("application/vnd.microsoft.icon" === contentType) {
+                req.url = `public/assets/images/${req.url}`
+            }
+            ['image/png','image/jpg','image/gif', "application/vnd.microsoft.icon"].includes(contentType) ? serve(path.join('./', req.url)) :
             serve(path.join(process.cwd(), req.url));
+            // serve(`./${req.url}`)
+            console.log({cwd: path.join(process.cwd(), req.url)})
     }
 })
 

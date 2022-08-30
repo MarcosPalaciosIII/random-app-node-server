@@ -1,9 +1,10 @@
 const cardSuites1 = ['H', 'C', "D", "S"]
+const cardSuitsElementalValues = [];
 const cardValues1 = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A']
 const media = {
     png: [{prefix: 'card_back_', range: [0, 0], fileType: 'png'}],
     jpeg: [{prefix: 'card_back_', range: [1, 5], fileType: 'jpeg'}],
-    gif: [{prefix: 'gaming', range: [0, 9], fileType: 'gif'}]
+    gif: [{prefix: 'gaming', range: [0, 18], fileType: 'gif'}]
 }
 
 const cardSuitesOptions = [cardSuites1]

@@ -1,11 +1,11 @@
 class Deck {
-    constructor(deckOwner, cardSuits, cardValues, cardImageSrcs) {
+    constructor(deckOwner, cardSuits, cardValues, cardBackIndex) {
         this.deck = [];
         this.discardPile = [];
         this.deckOwner = deckOwner;
         this.cardSuits = cardSuits;
         this.cardValues = cardValues;
-        this.cardImageSrcs = cardImageSrcs
+        this.cardBackIndex = cardBackIndex
         this.id = ''
 
         this.generateDeckId();
@@ -14,7 +14,7 @@ class Deck {
     generateDeck() {
         this.cardSuits.forEach(suit => {
             this.cardValues.forEach(value => {
-                this.deck.push(new Card(suit, value, this.cardImageSrcs, this.id));
+                this.deck.push(new Card(suit, value, this.cardBackIndex, this.id));
             })
         })
 
@@ -24,7 +24,7 @@ class Deck {
     }
     
     generateDeckId() {
-        this.id = `${this.deckOwner}${randomNumber(500)}`
+        this.id = `${this.deckOwner.split(' ').join('')}${randomNumber(500)}`
         console.log(`Id Created : ${this.id}`)
         this.generateDeck();
     }
